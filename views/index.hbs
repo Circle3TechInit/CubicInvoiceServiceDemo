@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://library.halleppardwebsolutions.co.za/eppardcss1/eppard.min.css"
+        integrity="sha256-9XgURVUvICiXggZgQjI8iC17s8Vm9EhHiHFCDRQSEKE=" crossorigin="anonymous">
+    <title>Cloud Cubic Email Notification</title>
+    <style media="all" type="text/css">
+        body,
+        main {
+            box-sizing: border-box;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: .1em solid gray;
+        }
+
+        th,
+        td {
+            text-align: left;
+            border: .1em solid gray;
+            padding: .4em;
+        }
+
+        .fontb-b {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="wdth100 hvw" style="min-height: 100dvh;">
+    <header class="bg-brown hvw10">
+        <div class="text-left p-3">
+            <p class="font-md textt-u text-white">
+                Calvid Inc
+                <span class="font-sm">&#8482;</span>
+            </p>
+        </div>
+    </header>
+
+    <main class="wdth100 hvw row gap-row-25 justify-center p-1">
+        <div class="addr col-12-xs col-12-sm col-12-md col-12-lg layoutG-row justify-item-flex-end">
+            <div class="wdth30">
+                <div class="">
+                    <h2 class="font-lg">Tax Invoice</h5>
+                </div>
+                <div class="" style="line-height: 1.2em;">
+                    <h5 class="mt-2 fontb-b">Randall Business Park</h5>
+                    <p class="">Unit 26</p>
+                    <p class="">1584 Cranberry Cresent</p>
+                    <p class="">Laser Park, Roodpoort, Jhb</p>
+                    <p class="">Gauteng</p>
+                    <p class="">Tel: 011 987 6543</p>
+                    <p class="">Email: admin@randallinc.cp.za</p>
+                    <p class="">Vat Reg No: 9876543210</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="addr col-12-xs col-12-sm col-12-md col-12-lg row gap-col- justify-center">
+            <div class="addr col-12-xs col-12-sm col-12-md col-7-lg" style="line-height: 1.2em;">
+                <p class="textt-u fontb-b">{{name}}</p>
+                <p class="">Cell: {{cellNo}}</p>
+                <p class="">Office: {{landlineNo}}</p>
+                <p class="">Email: {{email}}</p>
+            </div>
+            <div class="addr col-12-xs col-12-sm col-12-md col-5-lg">
+                <table class="">
+                    <tr>
+                        <th class="textt-u fontb-b">Customer Account</th>
+                        <th>{{accountInfo.id}}</th>
+                    </tr>
+                    <tr>
+                        <td class="textt-u fontb-b">Account VAT Node</td>
+                        <td>{{accountInfo.vatNo}}</td>
+                    </tr>
+                    <tr>
+                        <td class="textt-u fontb-b">Order No</td>
+                        <td>{{accountInfo.orderNo}}</td>
+                    </tr>
+                    <tr>
+                        <td class="textt-u fontb-b">Contact Person</td>
+                        <td>{{name}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="addr col-12-xs col-12-sm col-12-md col-12-lg row gap-col-5 justify-center">
+            <table class="">
+                <tr class="textt-u fontb-b">
+                    <th>Date</th>
+                    <th>Invoice #</th>
+                    <th>Sales Agent</th>
+                    <th>Delivery Method</th>
+                    <th>Payment</th>
+                </tr>
+                <tr>
+                    <td class="">{{date}}</td>
+                    <td>{{orderInfo.invNo}}</td>
+                    <td>{{orderInfo.salesPerson}}</td>
+                    <td>{{orderInfo.delMethod}}</td>
+                    <td>{{orderInfo.payMethod}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="addr col-12-xs col-12-sm col-12-md col-12-lg row gap-col-5 justify-center">
+            <table class="">
+                <tr class="textt-u fontb-b">
+                    <th>Barcode</th>
+                    <th>Stock Code</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Nett Price</th>
+                    <th>VAT</th>
+                    <th>Incl. Price</th>
+                </tr>
+                <tr>
+                    <td class="">{{orderInfo.stock.barcode}}</td>
+                    <td>{{orderInfo.stock.sCode}}</td>
+                    <td>{{orderInfo.stock.description}}</td>
+                    <td>{{orderInfo.stock.qty}}</td>
+                    <td>{{orderInfo.stock.unitPrice}},10</td>
+                    <td>{{orderInfo.stock.nettPrice}},00</td>
+                    <td>{{orderInfo.stock.vat}}</td>
+                    <td>{{orderInfo.stock.unitPrice}},10</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="addr col-12-xs col-12-sm col-12-md col-12-lg row justify-center mt-4">
+            <div class="addr col-12-xs col-12-sm col-12-md col-7-lg" style="line-height: 1.2em;">
+                <p class="textt-u fontb-b">Banking Details</p>
+                <p class="">Account Holder: Calvid Inc</p>
+                <p class="">Bank: First National Bank</p>
+                <p class="">Account: 661147856325442</p>
+                <p class="">Branch: 255250</p>
+                <p class="">Reference: {{orderInfo.invNo}}</p>
+            </div>
+            <div class="addr col-12-xs col-12-sm col-12-md col-5-lg">
+                <table class="">
+                    <tr class="textt-u fontb-b">
+                        <th>Currency</th>
+                        <th>Ex Vat</th>
+                        <th>Vat</th>
+                        <th>Total Inc Vat</th>
+                    </tr>
+                    <tr>
+                        <td>ZAR</td>
+                        <td>{{orderInfo.stock.nettPrice}},00</td>
+                        <td>{{orderInfo.stock.vat}}</td>
+                        <td>{{orderInfo.stock.unitPrice}},10</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-12-xs col-12-sm col-12-md col-12-lg row gap-row-20 justify-center mt-4">
+            <div class="addr col-12-xs col-12-sm col-12-md col-7-lg border-gray br-1 p-1" style="line-height: 1.2em;">
+                <p class="">
+                    Please take Note of Warranty Conditions: When returning an item, it is required to be returned with
+                    original packaging, all a ccessories as
+                    supplied and in the same condition as purchased. No Refunds or exchanges will be considered
+                    without presentation of the original Invoice and failure to adhere to these terms (available on
+                    request). A minimum of 15% ha ndling fee will be
+                    charged for items returned for a refund.
+                </p>
+            </div>
+
+            <div class="addr col-12-xs col-12-sm col-12-md col-7-lg row gap-col- justify-center fontb-b" style="line-height: 1.2em;">
+                <div class="text-left col-12-xs col-12-sm col-12-md col-4-lg"><p>Print Name: {{name}}</p></div>
+                <div class="text-left col-12-xs col-12-sm col-12-md col-4-lg"><p>Signature:</p></div>
+                <div class="text-left col-12-xs col-12-sm col-12-md col-4-lg"><p>Date: {{date}}</p></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brown hvw10 layoutG-row align-items-center justify-items-center">
+        <div class="text-center p-3">
+            <p class="text-lgray">
+                Calvid Inc &#174; - 2000-2024 &#169;
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
